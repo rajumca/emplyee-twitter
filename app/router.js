@@ -7,6 +7,8 @@ const Router = EmberRouter.extend({
 });
 
 Router.map(function() {
+  this.route('feed', {path:'/:userName'});
+  this.route('search-view',{path:'search/:userName/:searchInput'});
 });
 
 export default Router;

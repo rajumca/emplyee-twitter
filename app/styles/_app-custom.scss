@@ -1,0 +1,139 @@
+/*body{
+margin-left: 20%;
+margin-right: 20%;
+}*/
+div.tweet{
+    background-color: white;
+    border-bottom: 1px solid #e6ecf0;
+    font-family:"Segoe UI", Arial, sans-serif;
+    min-height: 51px;
+    padding: 9px 12px;
+    padding-bottom:9px;
+    padding-left:12px;
+    padding-right:12px;
+    padding-top:9px;
+}
+
+body {
+    background: #e6ecf0;
+    color: #14171a;
+    font-size: 14px;
+    line-height: 20px;
+    overflow-y: scroll;
+}
+.topbar {
+    backface-visibility: hidden;
+    border-bottom: 1px solid #e6ecf0;
+    border-bottom: 1px solid rgba(0,0,0,0.05);
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+    z-index: 1000;
+}
+
+.dashboard {
+    float: left;
+    /*width: 290px;*/
+    padding: 7px;
+}
+.DashboardProfileCard {
+    border: 1px solid #e6ecf0;
+    background: #fff;
+}
+.content-main {
+   /* margin-top:2%;*/
+    margin-left: 10%;
+    width: 590px;
+    float: inherit;
+}
+body.three-col .wrapper {
+    width: 1190px;
+}
+
+.AppContent {
+    padding: 56px 14px 15px;
+    position: relative;
+    padding-left: 20%;
+}
+/**
+.tweet {
+    background-color: white;
+    border-bottom-style:solid;
+    border-bottom-width:1px;
+    color:rgb(20, 23, 26);
+    font-family:"Segoe UI", Arial, sans-serif;
+    border-bottom: 1px solid #e6ecf0;
+    cursor: pointer;
+    min-height: 51px;
+    position: inherit;
+    min-height: 51px;
+    padding: 9px 12px;
+    padding-bottom:9px;
+    padding-left:12px;
+    padding-right:12px;
+    padding-top:9px;
+}*/
+.name{
+    font-weight: bold;
+}
+.user_name .tweet_time{
+    color:rgb(101, 119, 134);
+    cursor:pointer;
+    display:inline;
+    font-family:"Segoe UI", Arial, sans-serif;
+    font-size:14px;
+    line-height:20px;
+    list-style-image:none;
+    list-style-position:outside;
+    list-style-type:none;
+    text-align:start;
+}
+.title_user_name{
+    color:rgb(101, 119, 134);
+    cursor:pointer;
+    display:inline;
+    font-family:"Segoe UI", Arial, sans-serif;
+    font-size:15px;
+    font-weight: bold;
+    line-height:20px;
+    list-style-image:none;
+    list-style-position:outside;
+    list-style-type:none;
+    text-align:start;
+}
+.title_name{
+    font-weight: bold;
+    font-size: 15px;
+}
+.title_div{
+    background-color: white;
+    border-bottom-style:solid;
+    border-bottom-width:1px;
+    color:rgb(20, 23, 26);
+    font-family:"Segoe UI", Arial, sans-serif;
+    border-bottom: 1px solid #e6ecf0;
+    cursor: pointer;
+}
+
+.post_tweet{
+line-height: 20px;
+}
+
+.user-list{
+    background-color: white;
+    border-bottom: 1px solid #e6ecf0;
+    font-family:"Segoe UI", Arial, sans-serif;
+    min-height: 60px;
+    padding: 9px 12px;
+    padding-bottom:9px;
+    padding-left:12px;
+    padding-right:12px;
+    padding-top:9px;
+    margin-top: 1%;
+}
+
+.followers-number{
+    color: #0099CC;
+    font-weight: bold;
+}

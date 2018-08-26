@@ -1,0 +1,46 @@
+ <nav class="navbar navbar-dark bg-primary mb-2">
+      <a class="navbar-brand" href="#">Home</a>
+    <form class="form-inline my-2 my-lg-0">
+      {{input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" value=searchInput}}
+      <button class="btn btn-success" type="submit" {{action "search" searchInput}} >Search</button>
+    </form>
+</nav> 
+
+<div class="row mt-2">
+     
+    <div class="col-2"></div>
+    <div class="col-2 title_div">
+        <div class="title_name mt-4 font-weight-bold">{{capitalize-string model.user.name}}</div>
+        <span class="title_user_name">@{{model.user.userName}}</span>
+        <div class="row mt-2">
+           <div class="col">Followers</div> <div class="col">Followees</div>
+        </div>
+        <div class="row">
+          <div class="col followers-number">{{model.user.followers.length}}</div> <div class="col followers-number">{{model.user.followees.length}}</div>
+        </div>
+        
+    </div>
+
+    <div class="col-4"> 
+        <!--<textarea class="form-control" rows="5" id="comment" value=tweet></textarea>-->
+        {{textarea class="form-control"  value=tweet cols="79" rows="5" maxlength="160"}}
+        <div class="text-right"> <button class="btn btn-primary" {{action "tweet"}}>tweet</button></div>
+
+         {{#each model.tweets as |tweet| }}
+                   <!--<div class="tweet">-->
+                     <div class="tweet">
+                         <div class=>
+                        <span class="name font-weight-bold">{{tweet.user.name}}</span> 
+                        <span class="user_name">@{{tweet.user.userName}}</span>
+                        <span class="tweet_time">.</span>
+                        <span class="tweet_time"> {{moment-format tweet.time  'MMMM D, YYYY h:mm A'}}</span>
+                        </div>
+                        <div class="">{{tweet.message}}</div>
+                       
+                    </div>
+                <!--  </div>-->
+        {{/each}}
+    </div>
+    <div class="col-2"></div>
+    <div class="col-2"></div>
+</div>

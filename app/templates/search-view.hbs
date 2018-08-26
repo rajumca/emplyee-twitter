@@ -1,0 +1,43 @@
+ <nav class="navbar navbar-dark bg-primary mb-2">
+      {{#link-to 'feed' model.user.userName  class="navbar-brand"}}Home{{/link-to}}
+   
+</nav> 
+
+<div class="row">
+     
+     <div class="col-2"></div>
+        <div class="col-2 title_div">
+                <div class="title_name mt-4 font-weight-bold">{{capitalize-string model.user.name}}</div>
+                <span class="title_user_name">@{{model.user.userName}}</span>
+                <div class="row mt-2">
+                <div class="col">Followers</div> <div class="col">Followees</div>
+                </div>
+                <div class="row">
+                <div class="col followers-number">{{model.user.followers.length}}</div> <div class="col followers-number">{{model.user.followers.length}}</div>
+                </div>
+            
+        </div>
+
+
+    <div class="col-4"> 
+    <form class="form-inline my-4 my-lg-4">
+        {{input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" value=searchInput}}
+        <button class="btn btn-success" type="submit" {{action "search" searchInput}} >Search</button>
+    </form>
+        
+        {{#each model.users as |user| }}
+                   <div class="user-list">
+                      <div class="row  align-middle">
+                          <div class="col-6 align-middle">
+                            <span class="name font-weight-bold">{{user.name}}</span> 
+                            <span class="user_name">@{{user.userName}}</span>
+                            </div>
+                            <div class="col">   <button class="btn btn-primary">Follow</button></div>
+
+                        </div>
+               </div>
+        {{/each}}
+    </div>
+    <div class="col-2"></div>
+    <div class="col-2"></div>
+</div>
