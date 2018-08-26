@@ -8,18 +8,18 @@
 
 <div class="row mt-2">
      
-    <div class="col-2"></div>
-    <div class="col-2 title_div">
-        <div class="title_name mt-4 font-weight-bold">{{capitalize-string model.user.name}}</div>
-        <span class="title_user_name">@{{model.user.userName}}</span>
-        <div class="row mt-2">
-           <div class="col">Followers</div> <div class="col">Followees</div>
+        <div class="col-2"></div>
+        <div class="col-2 title_div">
+                <div class="title_name mt-4 font-weight-bold">{{capitalize-string model.user.name}}</div>
+                <span class="title_user_name">@{{model.user.userName}}</span>
+                <div class="row mt-2">
+                <div class="col">Followers</div> <div class="col">Followees</div>
+                </div>
+                <div class="row">
+                <div class="col followers-number">{{model.user.followers.length}}</div> <div class="col followers-number">{{model.user.followees.length}}</div>
+                </div>
+            
         </div>
-        <div class="row">
-          <div class="col followers-number">{{model.user.followers.length}}</div> <div class="col followers-number">{{model.user.followees.length}}</div>
-        </div>
-        
-    </div>
 
     <div class="col-4"> 
         <!--<textarea class="form-control" rows="5" id="comment" value=tweet></textarea>-->

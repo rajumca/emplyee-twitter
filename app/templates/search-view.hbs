@@ -13,7 +13,7 @@
                 <div class="col">Followers</div> <div class="col">Followees</div>
                 </div>
                 <div class="row">
-                <div class="col followers-number">{{model.user.followers.length}}</div> <div class="col followers-number">{{model.user.followers.length}}</div>
+                <div class="col followers-number">{{model.user.followers.length}}</div> <div class="col followers-number">{{model.user.followees.length}}</div>
                 </div>
             
         </div>
@@ -32,8 +32,13 @@
                             <span class="name font-weight-bold">{{user.name}}</span> 
                             <span class="user_name">@{{user.userName}}</span>
                             </div>
-                            <div class="col">   <button class="btn btn-primary">Follow</button></div>
-
+                            <div class="col"> 
+                                {{#if (array-contains model.user.followees user.userName) }}
+                                     <button class="btn btn-primary">Follow</button>
+                                {{else}}
+                                      <button class="btn btn-info">Following</button>
+                                {{/if}}
+                            </div>
                         </div>
                </div>
         {{/each}}
