@@ -10,7 +10,7 @@
                 <div class="title_name mt-4 font-weight-bold">{{capitalize-string model.user.name}}</div>
                 <span class="title_user_name">@{{model.user.userName}}</span>
                 <div class="row mt-2">
-                <div class="col">Followers</div> <div class="col">Followees</div>
+                <div class="col">Followers</div> <div class="col">Following</div>
                 </div>
                 <div class="row">
                 <div class="col followers-number">{{model.user.followers.length}}</div> <div class="col followers-number">{{model.user.followees.length}}</div>
@@ -34,9 +34,9 @@
                             </div>
                             <div class="col"> 
                                 {{#if (array-contains model.user.followees user.userName) }}
-                                     <button class="btn btn-primary">Follow</button>
-                                {{else}}
-                                      <button class="btn btn-info">Following</button>
+                                <button class="btn btn-info">Following</button> 
+                                {{else if (not-eq model.user.userName user.userName) }}
+                                <button class="btn btn-primary">Follow</button>
                                 {{/if}}
                             </div>
                         </div>
