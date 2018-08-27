@@ -1,11 +1,18 @@
 import Route from '@ember/routing/route';
 
 export default Route.extend({
+    bforeModel(){
+        this.store.unloadAll();
+    },
     model(params){
         let userName=params.userName;
-        let data= this.store.queryRecord('feed', { follower: userName })
+       // this.store.unloadAll();
+        let data= this.store.queryRecord('feed', { follower: userName });
         return data;
-    }, actions:{
+    },refreshRoute:function(){
+        this.refresh();
+    }
+    , actions:{
         tweet:function(){
             let tweet=this.get('controller').get('tweet');
             let userPosted=this.get('controller').get('model').get('user');
@@ -14,12 +21,11 @@ export default Route.extend({
                 user: userPosted,
                 time: new Date()
             });
-            record.save().then(function(){
-               // this.controller.set('model',this.store.queryRecord('feed', { follower: userPosted.userName }));
-           // alert('hello')
-           this.refresh();
-            });
+            record.save().then(this.refreshRoute);
+          
+            this.get('controller').get('model').get('tweets').push(record);
             this.get('controller').set('tweet',"");
+            this.transitionTo('feed',userPosted.userName);
            
            
         },

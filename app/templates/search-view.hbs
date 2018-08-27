@@ -13,7 +13,8 @@
                 <div class="col">Followers</div> <div class="col">Following</div>
                 </div>
                 <div class="row">
-                <div class="col followers-number">{{model.user.followers.length}}</div> <div class="col followers-number">{{model.user.followees.length}}</div>
+                <div class="col followers-number">{{#link-to 'profile-view' model.user.userName 'followers' }}{{model.user.followers.length}}{{/link-to}}</div> 
+                <div class="col followers-number">{{#link-to 'profile-view' model.user.userName 'following' }}{{model.user.followees.length}}{{/link-to}}</div>
                 </div>
             
         </div>

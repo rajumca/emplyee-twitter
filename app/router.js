@@ -9,6 +9,9 @@ const Router = EmberRouter.extend({
 Router.map(function() {
   this.route('feed', {path:'/:userName'});
   this.route('search-view',{path:'search/:userName/:searchInput'});
+  this.route('register');
+  this.route('login');
+  this.route('profile-view',{path:'profile/:userName/:action'});
 });
 
 export default Router;
