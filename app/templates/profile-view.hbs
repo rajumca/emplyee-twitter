@@ -17,9 +17,7 @@
              <div class="col profile" >Born on {{moment-format model.user.dateOfBirth 'MMMM DD,YYYY'}}</div>
          </div>
       </div>
-
-
-    <div class="col-4"> 
+     <div class="col-4"> 
          <nav class="navbar navbar-expand-lg navbar-light bg-light">
                 <div class="collapse navbar-collapse" id="navbarText">
                     <ul class="navbar-nav mr-auto">
@@ -42,19 +40,19 @@
             {{#each model.user.followers as |user| }}
                    <div class="user-list">
                       <div class="row  align-middle">
-                          <div class="col-6 align-middle">
-                           <!-- <span class="name font-weight-bold">{{user.name}}</span> -->
-                            <span class="user_name">@{{user}}</span>
+                            <div class="col-6 align-left">
+                                <span class="name font-weight-bold">{{user.name}}</span>
+                                <span class="user_name">@{{user.userName}}</span>
                             </div>
                             <div class="col"> 
-                                {{#if (array-contains model.user.followees user) }}
-                                <button class="btn btn-info" {{action "unfollow" user}}>Following</button> 
+                                {{#if (array-contains model.user.followees user.userName) }}
+                                <button class="btn btn-info" {{action "unfollow" user.userName}}>Following</button> 
                                 {{else if (not-eq model.user.userName user.userName) }}
-                                <button class="btn btn-primary" {{action "follow" user}}>Follow</button>
+                                <button class="btn btn-primary" {{action "follow" user.userName}}>Follow</button>
                                 {{/if}}
                             </div>
                         </div>
-               </div>
+                    </div>
             {{/each}}
 
      {{/if}}
@@ -62,15 +60,15 @@
             {{#each model.user.followees as |user| }}
                    <div class="user-list">
                       <div class="row  align-middle">
-                          <div class="col-6 align-middle">
-                           <!-- <span class="name font-weight-bold">{{user.name}}</span> -->
-                            <span class="user_name">@{{user}}</span>
+                            <div class="col-6 align-left">
+                                <span class="name font-weight-bold">{{user.name}}</span>
+                                <span class="user_name">@{{user.userName}}</span>
                             </div>
                             <div class="col"> 
-                                {{#if (array-contains model.user.followees user) }}
-                                <button class="btn btn-info" {{action "unfollow" user}}>Following</button> 
+                                {{#if (array-contains model.user.followees user.userName) }}
+                                <button class="btn btn-info" {{action "unfollow" user.userName}}>Following</button> 
                                 {{else if (not-eq model.user.userName user.userName) }}
-                                <button class="btn btn-primary" {{action "follow" user}}>Follow</button>
+                                <button class="btn btn-primary" {{action "follow" user.userName}}>Follow</button>
                                 {{/if}}
                             </div>
                         </div>

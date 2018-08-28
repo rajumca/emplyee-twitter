@@ -1,0 +1,19 @@
+
+ {{#each model.user.followers as |user| }}
+                   <div class="user-list">
+                      <div class="row  align-middle">
+                            <div class="col-6 align-left">
+                                <span class="name font-weight-bold">{{user.name}}</span>
+                                <span class="user_name">@{{user.userName}}</span>
+                            </div>
+                            <div class="col"> 
+                                {{#if (array-contains model.user.followees user.user.userName) }}
+                                <button class="btn btn-info" {{action "unfollow" user.userName}}>Following</button> 
+                                {{else if (not-eq model.user.userName user.userName) }}
+                                <button class="btn btn-primary" {{action "follow" user.userName}}>Follow</button>
+                                {{/if}}
+                            </div>
+                        </div>
+                    </div>
+{{/each}}
+{{yield}}
