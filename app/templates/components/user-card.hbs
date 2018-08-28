@@ -1,0 +1,14 @@
+<div class="mt-4 font-weight-bold"> 
+    {{#link-to 'profile-view' user.userName 'tweets' class="title_name"}}{{capitalize-string user.name}}{{/link-to}}
+</div>
+<span >
+    {{#link-to 'profile-view' user.userName 'tweets' class="title_user_name"}}@{{user.userName}}{{/link-to}}
+</span>
+<div class="row mt-2">
+    <div class="col">Followers</div> <div class="col">Following</div>
+</div>
+<div class="row">
+    <div class="col followers-number">{{#link-to 'profile-view' user.userName 'followers' }}{{user.followers.length}}{{/link-to}}</div> 
+    <div class="col followers-number">{{#link-to 'profile-view' user.userName 'following' }}{{user.followees.length}}{{/link-to}}</div>
+</div>
+{{yield}}

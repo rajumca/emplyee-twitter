@@ -7,28 +7,9 @@ export default Route.extend({
     model(params){
         let userName=params.userName;
        // this.store.unloadAll();
-        let data= this.store.queryRecord('feed', { follower: userName });
+        let data=  this.store.queryRecord('feed', { userName: userName, userTweetsOnly:false })
         return data;
-    },refreshRoute:function(){
-        this.refresh();
-    }
-    , actions:{
-        tweet:function(){
-            let tweet=this.get('controller').get('tweet');
-            let userPosted=this.get('controller').get('model').get('user');
-           let record= this.store.createRecord('tweet',{
-                message: tweet,
-                user: userPosted,
-                time: new Date()
-            });
-            record.save().then(this.refreshRoute);
-          
-            this.get('controller').get('model').get('tweets').push(record);
-            this.get('controller').set('tweet',"");
-            this.transitionTo('feed',userPosted.userName);
-           
-           
-        },
+    } , actions:{
         search:function(searchInput){
             let userName=  this.get('controller').get('model').get('user').userName;
             this.controller.set('searchInput', "");

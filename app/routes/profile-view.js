@@ -6,6 +6,7 @@ export default Route.extend({
         return RSVP.hash({
             users:'',
             user: this.store.findRecord('user', userName),
+            feed:this.store.queryRecord('feed', { userName: userName, userTweetsOnly:true }),
             action: params.action
           });
     }
