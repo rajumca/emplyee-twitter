@@ -1,0 +1,17 @@
+<div class="user-list">
+    <div class="row  align-middle">
+        <div class="col-6 align-left">
+            <span class="name font-weight-bold">{{followedUser.name}}</span>
+            <span class="user_name">@{{followedUser.userName}}</span>
+        </div>
+        <div class="col"> 
+            {{#if follows }}
+            
+                <button class="btn btn-info" {{action "unfollow" followedUser.userName}}>Following</button> 
+            {{else if (not-eq loggedInUserName followedUser.userName) }}
+          
+                <button class="btn btn-primary" {{action "follow" followedUser.userName}}>Follow</button>
+            {{/if}}
+        </div>
+    </div>
+ </div>
