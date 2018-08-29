@@ -12,5 +12,11 @@ export default DS.RESTAdapter.extend({
 
     pathForType:function(modelName) {
         return modelName;
-      }
+      },
+     shouldReloadAll:function(store, snapshotArray) {
+    return true; 
+    },
+    shouldReloadRecord(store, ticketSnapshot) {
+    return true;
+    }
 });

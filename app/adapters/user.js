@@ -9,6 +9,12 @@ export default DS.RESTAdapter.extend({
         newOptions.xhrFields = {withCredentials: true},
         newOptions.crossDomain = true
         return newOptions;
-    }
+    },
+    shouldReloadAll:function(store, snapshotArray) {
+        return true; 
+        },
+        shouldReloadRecord(store, ticketSnapshot) {
+        return true;
+        }
 
 });

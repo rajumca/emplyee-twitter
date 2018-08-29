@@ -24,9 +24,9 @@
                                 </div>
                                 <div class="col"> 
                                     {{#if (array-contains model.user.followees user.userName) }}
-                                    <button class="btn btn-info" {{action "unfollow" user.userName}}>Following</button> 
+                                    <button class="btn btn-info" {{action "unfollow" user}}>Following</button> 
                                     {{else if (not-eq model.user.userName user.userName) }}
-                                    <button class="btn btn-primary" {{action "follow" user.userName}}>Follow</button>
+                                    <button class="btn btn-primary" {{action "follow" user}}>Follow</button>
                                     {{/if}}
                                 </div>
                             </div>

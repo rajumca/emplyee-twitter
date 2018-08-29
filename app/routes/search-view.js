@@ -18,13 +18,16 @@ export default Route.extend({
 
         },
         follow(followee){
+            let user=  this.get('controller').get('model').user;
             let userName=  this.get('controller').get('model').user.userName;
            let record= this.store.createRecord('follow',{
                 follower: userName,
-                followee: followee,
+                followee: followee.userName,
                 followed:true
             });
             record.save();
+            user.followees[user.followees.length]='{userName: "'+followee.userName+'", name: "'+followee.name +'"}'
+           
            /* this.get('controller').get('model').user.followees.push(followee);
             this.transitionTo('playlist', this.get('controller').get('model'));*/
           
@@ -32,10 +35,18 @@ export default Route.extend({
             let userName=  this.get('controller').get('model').user.userName;
             let record= this.store.createRecord('follow',{
                 follower: userName,
-                followee: followee,
+                followee: followee.userName,
                 followed:false
             });
             record.save();
+            let user=  this.get('controller').get('model').user;
+            let toUnfollow=null;
+                user.followees.forEach(function(unfollowed){
+                if(unfollowed.userName==followee.userName){
+                    toUnfollow=unfollowed;
+                }
+          });
+            user.set('followees',user.followees.toArray().without(toUnfollow));
           /*  this.get('controller').get('model').user.followees.removeObject(followee);
             this.transitionTo('playlist', this.get('controller').get('model'));*/
         

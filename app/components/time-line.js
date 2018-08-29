@@ -7,9 +7,6 @@ export default Component.extend({
     tweet:null,
     tempTweet:null,
     user:{},
-    didReceiveAttrs() {
-        this._super(...arguments);
-      },
     actions:{
         tweet:function(){
             let tweet=this.get('tweet');
