@@ -3,12 +3,13 @@
     <form class="form-inline my-2 my-lg-0">
         {{input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" value=searchInput}}
         {{#link-to "search-view" model.user.userName searchInput  tagName='button' class="btn btn-success"}}Search{{/link-to}}
-    </form>    
+         {{#link-to "login"  tagName='button' class="btn btn-secondary btn-sm ml-4"}}Logout{{/link-to}}
+    </form> 
 </nav> 
 
-<<div class="row">
+<div class="row">
     <div class="col-2"></div>
-    <div class="col-2 title_div">
+    <div class="col-2  title_div">
         {{user-card user=model.user}}
         <div class="row">
              <div class="col profile">{{model.user.city}}, {{model.user.state}}</div>
@@ -18,75 +19,8 @@
          </div>
     </div>
     <div class="col-4"> 
-        <!-- <nav class="navbar navbar-expand-lg navbar-light bg-light">
-                <div class="collapse navbar-collapse" id="navbarText">
-                    <ul class="navbar-nav mr-auto">
-                    <li class="nav-item {{if (eq model.action 'tweets') 'active'}}">
-                        {{#link-to 'profile-view' model.user.userName 'tweets' class="nav-link" }}Tweets{{/link-to}}
-                    </li>
-                    <li class="nav-item {{if (eq model.action 'followers') 'active'}}">
-                    
-                    {{#link-to 'profile-view' model.user.userName 'followers' class="nav-link" }}Followers{{/link-to}}
-                    </li>
-                    <li class="nav-item {{if (eq model.action 'following') 'active'}}">
-                        {{#link-to 'profile-view' model.user.userName 'following' class="nav-link" }}Following{{/link-to}}
-                    </li>
-                    </ul>
-                
-                </div>
-        </nav>
-
-        {{#if (eq model.action 'followers')}}
-            {{#each model.user.followers as |user| }}
-                   <div class="user-list">
-                      <div class="row  align-middle">
-                            <div class="col-6 align-left">
-                                <span class="name font-weight-bold">{{user.name}}</span>
-                                <span class="user_name">@{{user.userName}}</span>
-                            </div>
-                            <div class="col"> 
-                                {{#if (array-contains model.user.followees user.userName) }}
-                                <button class="btn btn-info" {{action "unfollow" user.userName}}>Following</button> 
-                                {{else if (not-eq model.user.userName user.userName) }}
-                                <button class="btn btn-primary" {{action "follow" user.userName}}>Follow</button>
-                                {{/if}}
-                            </div>
-                        </div>
-                    </div>
-    
-            {{/each}}
-
-     {{/if}}
-     {{#if (eq model.action 'following')}}
-            {{#each model.user.followees as |user| }}
-                   <div class="user-list">
-                      <div class="row  align-middle">
-                            <div class="col-6 align-left">
-                                <span class="name font-weight-bold">{{user.name}}</span>
-                                <span class="user_name">@{{user.userName}}</span>
-                            </div>
-                            <div class="col"> 
-                                {{#if (array-contains model.user.followees user.userName) }}
-                                <button class="btn btn-info" {{action "unfollow" user.userName}}>Following</button> 
-                                {{else if (not-eq model.user.userName user.userName) }}
-                                <button class="btn btn-primary" {{action "follow" user.userName}}>Follow</button>
-                                {{/if}}
-                            </div>
-                        </div>
-               </div>
-
-        {{/each}}
-    {{/if}}
-
-    {{#if (eq model.action 'tweets')}}
-            {{#each model.feed.tweets as |tweet|}}
-                {{tweet-body tweet=tweet}}
-            {{/each}}
-    {{/if}}-->
          {{profile-view user=model.user feed=model.feed action=model.action}}
     </div>
     <div class="col-2"></div>
     <div class="col-2"></div>
-    
-   
 </div>

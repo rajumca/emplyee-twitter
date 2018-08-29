@@ -1,5 +1,8 @@
  <nav class="navbar navbar-dark bg-primary mb-2">
       {{#link-to 'feed' model.user.userName  class="navbar-brand"}}Home{{/link-to}}
+       
+             {{#link-to "login"  tagName='button' class="btn btn-secondary btn-sm ml-4"}}Logout{{/link-to}}
+      
 </nav> 
 
 <div class="row">
@@ -15,6 +18,7 @@
                 <button class="btn btn-success" type="submit" {{action "search" searchInput}} >Search</button>
             </form>
             
+        {{#if (gt model.users.length '0')}}
             {{#each model.users as |user| }}
                     <div class="user-list">
                         <div class="row  align-middle">
@@ -32,6 +36,14 @@
                             </div>
                 </div>
             {{/each}}
+          {{else}}
+            <div class="row  align-middle">
+                <div class="col-1"></div>
+                 <div class="col-6 align-middle">
+                    <h4> No results found</h4>
+               </div>
+            </div>
+        {{/if}}
         </div>
     <div class="col-2"></div>
     <div class="col-2"></div>
