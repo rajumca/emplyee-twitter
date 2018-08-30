@@ -1,0 +1,26 @@
+<nav class="navbar navbar-dark bg-primary mb-2">
+    {{#link-to 'feed' model.user.userName  class="navbar-brand"}}Home{{/link-to}}
+    <form class="form-inline my-2 my-lg-0">
+        {{input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" value=searchInput}}
+        {{#link-to "search-view" model.user.userName searchInput  tagName='button' class="btn btn-success"}}Search{{/link-to}}
+         {{#link-to "login"  tagName='button' class="btn btn-secondary btn-sm ml-4"}}Logout{{/link-to}}
+    </form> 
+</nav> 
+
+<div class="row">
+    <div class="col-2"></div>
+    <div class="col-2  title_div">
+        {{user-card user=model.user}}
+        <div class="row">
+             <div class="col profile">{{model.user.city}}, {{model.user.state}}</div>
+         </div>
+         <div class="row">
+             <div class="col profile" >Born on {{moment-format model.user.dateOfBirth 'MMMM DD,YYYY'}}</div>
+         </div>
+    </div>
+    <div class="col-4"> 
+         {{profile-view user=model.user feed=model.feed action=model.action}}
+    </div>
+    <div class="col-2"></div>
+    <div class="col-2"></div>
+</div>

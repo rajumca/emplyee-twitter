@@ -7,8 +7,11 @@ const Router = EmberRouter.extend({
 });
 
 Router.map(function() {
-  this.route('feed', {path:'/:userName'});
+  this.route('feed', {path:'user/:userName'});
   this.route('search-view',{path:'search/:userName/:searchInput'});
+  this.route('register');
+  this.route('login', {path:"/"});
+  this.route('profile-view',{path:'profile/:userName/:action'});
 });
 
 export default Router;

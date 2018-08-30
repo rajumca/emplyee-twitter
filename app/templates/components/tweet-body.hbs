@@ -1,0 +1,10 @@
+<div class="tweet">
+    <div>
+        <span class="name font-weight-bold">{{tweet.user.name}}</span> 
+        <span class="user_name">@{{tweet.user.userName}}</span>
+        <span class="tweet_time">.</span>
+        <span class="tweet_time"> {{moment-format tweet.time  'MMMM D, YYYY h:mm A'}}</span>
+    </div>
+    <div class="">{{tweet.message}}</div>                    
+</div>
+{{yield}}
