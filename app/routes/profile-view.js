@@ -28,19 +28,12 @@ actions:{
             }
             function failure(reason) {
                 self.transitionTo('profile-view', user.userName);
-              }
+            }
               
             record.save().then(transitionToPost).catch(failure);
-            //record.save();
-           // record.save().then(model.set('user',thisStore.findRecord('user', user.userName)))
-            //this.transitionTo('#')
-          
-        /* this.get('controller').get('model').user.followees.push(followee);
-            this.transitionTo('playlist', this.get('controller').get('model'));*/
         
         }, unfollow(followee){
             var user=this.get('controller').get('model').user;
-            //let userName=  this.get('controller').get('model').user.userName;
             var user=this.get('controller').get('model').user;
             var model=this.get('controller').get('model');
             var thisStore=this.store;
@@ -59,13 +52,6 @@ actions:{
              }
              
            record.save().then(transitionToPost).catch(failure);
-          //  record.save().then(model.set('user',thisStore.findRecord('user', user.userName)))
-            //this.transitionTo('#')
-            //window.location.reload(true);
-        /*  this.get('controller').get('model').user.followees.removeObject(followee);
-            this.transitionTo('playlist', this.get('controller').get('model'));*/
-        
-
         }
     }
 });

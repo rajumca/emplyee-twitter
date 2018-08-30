@@ -6,7 +6,6 @@ export default Route.extend({
     },
     model(params){
         let userName=params.userName;
-       // this.store.unloadAll();
         let data=  this.store.queryRecord('feed', { userName: userName, userTweetsOnly:false })
         return data;
     } , actions:{

@@ -32,7 +32,6 @@ export default Component.extend({
                     time: new Date()
                 });
                 this.set('tweet',"");
-                //this.transitionTo('feed',userPosted.userName);
            
         }
         }

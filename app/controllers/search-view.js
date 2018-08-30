@@ -20,8 +20,6 @@ export default Controller.extend({
             record.save();
             user.followees[user.followees.length]='{userName: "'+followee.userName+'", name: "'+followee.name +'"}'
             this.transitionToRoute('search-view', this.get('model').user.userName, this.get('model').searchInput);
-           /* this.get('controller').get('model').user.followees.push(followee);
-            this.transitionTo('playlist', this.get('controller').get('model'));*/
           
         }, unfollow(followee){
             let userName=  this.get('model').user.userName;
@@ -39,9 +37,7 @@ export default Controller.extend({
                 }
           });
             user.set('followees',user.followees.toArray().without(toUnfollow));
-          /*  this.get('controller').get('model').user.followees.removeObject(followee);
-            this.transitionTo('playlist', this.get('controller').get('model'));*/
-        
+
             this.transitionToRoute('search-view', this.get('model').user.userName, this.get('model').searchInput);
         }
 

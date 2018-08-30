@@ -22,9 +22,7 @@ export default Route.extend({
                 self.transitionTo('feed', user.userName);
               }
               
-            record.save().then(transitionToPost).catch(failure);
-           // this.transition('feed', user.userName);
-           
+            record.save().then(transitionToPost).catch(failure);           
             }
         }
     }

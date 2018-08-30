@@ -7,7 +7,6 @@ action:{
             his.get('controller').set('error', true)
           this.replaceWith('login');
         } else {
-          // Let the route above this handle the error.
           return true;
         }
     }

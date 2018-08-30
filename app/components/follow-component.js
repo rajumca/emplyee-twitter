@@ -16,10 +16,7 @@ export default Component.extend({
             });
             record.save();
             this.set('follows',true);
-            followee.set("follows",true);
-        /* this.get('controller').get('model').user.followees.push(followee);
-            this.transitionTo('playlist', this.get('controller').get('model'));*/
-        
+            followee.set("follows",true);        
         }, unfollow(followee){
             let userName=  this.get('loggedInUserName');
             let record= this.store.createRecord('follow',{
@@ -30,11 +27,6 @@ export default Component.extend({
             record.save();
             this.set('follows',false);
             followee.set("follows",false);
-        
-        /*  this.get('controller').get('model').user.followees.removeObject(followee);
-            this.transitionTo('playlist', this.get('controller').get('model'));*/
-        
-
         }
     }
 });
