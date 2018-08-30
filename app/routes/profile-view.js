@@ -21,10 +21,20 @@ actions:{
                 followee: followee,
                 followed:true
             });
-            record.save();
+            let self = this;
+
+            function transitionToPost(record) {
+                 self.transitionTo('profile-view', user.userName);
+            }
+            function failure(reason) {
+                self.transitionTo('profile-view', user.userName);
+              }
+              
+            record.save().then(transitionToPost).catch(failure);
+            //record.save();
            // record.save().then(model.set('user',thisStore.findRecord('user', user.userName)))
-            this.transitionTo('#')
-            window.location.reload(true);
+            //this.transitionTo('#')
+          
         /* this.get('controller').get('model').user.followees.push(followee);
             this.transitionTo('playlist', this.get('controller').get('model'));*/
         
@@ -39,10 +49,19 @@ actions:{
                 followee: followee,
                 followed:false
             });
-            record.save();
+           
+            let self = this;
+            function transitionToPost(record) {
+                self.transitionTo('profile-view', record.follower);
+           }
+           function failure(reason) {
+               self.transitionTo('profile-view', user.userName);
+             }
+             
+           record.save().then(transitionToPost).catch(failure);
           //  record.save().then(model.set('user',thisStore.findRecord('user', user.userName)))
-            this.transitionTo('#')
-            window.location.reload(true);
+            //this.transitionTo('#')
+            //window.location.reload(true);
         /*  this.get('controller').get('model').user.followees.removeObject(followee);
             this.transitionTo('playlist', this.get('controller').get('model'));*/
         

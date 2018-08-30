@@ -1,1 +1,42 @@
-{{outlet}}
+<div  style="height:100vh;background-color: azure">
+<div class="row">
+    <div class="col-6" >
+
+    </div>
+    <div class="col-6">
+        <form >
+            <div class="row  mt-5">
+                <div class="col-2 ">Username</div>
+                <div vclass="col-3 ml-1">{{input value=user.userName class="form-control"}}</div>
+            
+            </div>
+            <div class="row  mt-5">
+                <div class="col-2 ">Name</div>
+                <div vclass="col-3 ml-1">{{input value=user.name class="form-control"}}</div>
+            
+            </div>
+            <div class="row  mt-5">
+                <div class="col-2 ">Username</div>
+                <div vclass="col-3 ml-1">{{input type="date" value=user.dateOfBirth class="form-control"}}</div>
+            
+            </div>
+            <div class="row  mt-5">
+                <div class="col-2 ">City</div>
+                <div vclass="col-3 ml-1">{{input value=user.city class="form-control"}}</div>
+            
+            </div>
+            <div class="row  mt-5">
+                <div class="col-2 ">State</div>
+                <div vclass="col-3 ml-1">{{input value=user.state class="form-control"}}</div>
+            
+            </div>
+            <div class="row  mt-5">
+                <div class="col-2 "><button class="btn btn-primary" type="submit" {{action "submit" user}}>Register</button></div>
+                <div vclass="col-3 ml-1"></div>
+            
+            </div>
+        </form>
+    </div>
+
+</div>
+</div>
