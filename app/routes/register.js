@@ -4,6 +4,7 @@ export default Route.extend({
 
     actions:{
         submit(user){
+            if(user.userName&&user.userName!=null&&user.userName!=""&&user.name&&user.name!=null&&user.name!=""){
             let record= this.store.createRecord('user',{
                 userName: user.userName,
                 name: user.name,
@@ -24,6 +25,7 @@ export default Route.extend({
             record.save().then(transitionToPost).catch(failure);
            // this.transition('feed', user.userName);
            
+            }
         }
     }
 
